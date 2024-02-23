@@ -48,6 +48,7 @@ namespace Chess
 
                 Console.Clear();
                 Tela.ImprimirPartida(partida);
+                Console.Read();
             }
             catch (Exception ex)
             {
