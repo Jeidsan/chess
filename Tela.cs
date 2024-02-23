@@ -1,4 +1,5 @@
-﻿using Plataforma;
+﻿using Chess.Xadrez;
+using Plataforma;
 using System.Diagnostics;
 
 namespace Chess
@@ -13,7 +14,7 @@ namespace Chess
                 for (int j = 0; j < tab.Colunas; j++)
                 {
                     if (tab.Peca(i, j) is null)
-                        Console.Write("- ");
+                        Console.Write("-");
                     else
                         ImprimirPeca(tab.Peca(i, j));
                         Console.Write(" ");
@@ -21,7 +22,7 @@ namespace Chess
 
                 Console.WriteLine();
             }            
-            Console.Write("  a b c d e f g h");
+            Console.WriteLine("  a b c d e f g h");            
         }
 
         public static void ImprimirPeca(Peca peca)
@@ -37,6 +38,16 @@ namespace Chess
                 Console.Write(peca);
                 Console.ForegroundColor = aux;
             }
+        }
+
+        internal static PosicaoXadrez LerPosicaoXadrez()
+        {
+            string s = Console.ReadLine();
+
+            char coluna = s[0];
+            int linha = int.Parse(s[1] + "");
+
+            return new PosicaoXadrez(coluna, linha);
         }
     }
 }

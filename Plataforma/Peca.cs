@@ -12,5 +12,10 @@
             Cor = cor;
             Tabuleiro = tabuleiro;            
         }
+
+        public void IncrementarQuantidadeMovimentos()
+        {
+            QuantidadeMovimentos++;
+        }
     }
 }
