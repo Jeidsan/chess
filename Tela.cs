@@ -1,5 +1,6 @@
 ﻿using Chess.Xadrez;
 using Plataforma;
+using Xadrez;
 
 namespace Chess
 {
@@ -77,6 +78,42 @@ namespace Chess
             int linha = int.Parse(s[1] + "");
 
             return new PosicaoXadrez(coluna, linha);
+        }
+
+        internal static void ImprimirPartida(PartidaXadrez partida)
+        {
+            Tela.ImprimirTabuleiro(partida.Tabuleiro);
+            Console.WriteLine();
+            ImprimirPecasCapturadas(partida);
+
+            Console.WriteLine();
+            Console.WriteLine("Turno: " + partida.Turno);
+            Console.WriteLine("Aguardando jogada: " + partida.JogadorAtual);            
+        }
+
+        private static void ImprimirPecasCapturadas(PartidaXadrez partida)
+        {
+            Console.WriteLine("Peças capturadas:");
+            Console.Write("Brancas: ");
+            ImprimirConjunto(partida.PecasCapturadas(Cor.Branca));
+            Console.WriteLine();
+            Console.Write("Pretas: ");
+
+            ConsoleColor aux = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            ImprimirConjunto(partida.PecasCapturadas(Cor.Preta));
+            Console.WriteLine();
+            Console.ForegroundColor = aux;
+        }
+
+        private static void ImprimirConjunto(HashSet<Peca> pecas)
+        {
+            Console.Write("[ ");
+            foreach (var x in pecas)
+            {
+                Console.Write(x + " ");
+            }
+            Console.Write("]");
         }
     }
 }
