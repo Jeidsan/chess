@@ -1,8 +1,8 @@
 ﻿namespace Plataforma
 {
-    internal class Peca
+    internal abstract class Peca
     {
-        public Posicao Posicao { get; set; } = null;
+        public Posicao Posicao { get; set; }
         public Cor Cor { get; protected set; }
         public int QuantidadeMovimentos { get; protected set; } = 0;
         public Tabuleiro Tabuleiro { get; protected set; }
@@ -17,5 +17,7 @@
         {
             QuantidadeMovimentos++;
         }
+
+        public abstract bool[,] MovimentosPossiveis();
     }
 }
