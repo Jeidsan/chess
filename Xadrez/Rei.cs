@@ -57,12 +57,6 @@ namespace Xadrez
             return mat;
         }
 
-        private bool PodeMover(Posicao pos)
-        {
-            Peca p = Tabuleiro.Peca(pos);
-            return p == null || p.Cor != Cor;
-        }
-
         public override string ToString()
         {
             return "R";

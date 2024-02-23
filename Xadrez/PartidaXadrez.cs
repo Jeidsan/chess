@@ -63,26 +63,39 @@ namespace Xadrez
 
         private void ColocarPecas()
         {
-            ColocarPeca('c', 1, new Torre(Cor.Branca, Tabuleiro));
-            ColocarPeca('d', 1, new Rei(Cor.Branca, Tabuleiro));
-            ColocarPeca('h', 7, new Torre(Cor.Branca, Tabuleiro));
+            ColocarPeca('a', 1, new Torre(Cor.Branca, Tabuleiro));
+            ColocarPeca('b', 1, new Cavalo(Cor.Branca, Tabuleiro));
+            ColocarPeca('c', 1, new Bispo(Cor.Branca, Tabuleiro));
+            ColocarPeca('d', 1, new Dama(Cor.Branca, Tabuleiro));
+            ColocarPeca('e', 1, new Rei(Cor.Branca, Tabuleiro));
+            ColocarPeca('f', 1, new Bispo(Cor.Branca, Tabuleiro));
+            ColocarPeca('g', 1, new Cavalo(Cor.Branca, Tabuleiro));
+            ColocarPeca('h', 1, new Torre(Cor.Branca, Tabuleiro));
+            ColocarPeca('a', 2, new Peao(Cor.Branca, Tabuleiro));
+            ColocarPeca('b', 2, new Peao(Cor.Branca, Tabuleiro));
+            ColocarPeca('c', 2, new Peao(Cor.Branca, Tabuleiro));
+            ColocarPeca('d', 2, new Peao(Cor.Branca, Tabuleiro));
+            ColocarPeca('e', 2, new Peao(Cor.Branca, Tabuleiro));
+            ColocarPeca('f', 2, new Peao(Cor.Branca, Tabuleiro));
+            ColocarPeca('g', 2, new Peao(Cor.Branca, Tabuleiro));
+            ColocarPeca('h', 2, new Peao(Cor.Branca, Tabuleiro));
 
-            ColocarPeca('a', 8, new Rei(Cor.Preta, Tabuleiro));
-            ColocarPeca('b', 8, new Torre(Cor.Preta, Tabuleiro));
-
-            //ColocarPeca('c', 1, new Torre(Cor.Branca, Tabuleiro));
-            //ColocarPeca('c', 2, new Torre(Cor.Branca, Tabuleiro));
-            //ColocarPeca('d', 2, new Torre(Cor.Branca, Tabuleiro));
-            //ColocarPeca('e', 2, new Torre(Cor.Branca, Tabuleiro));
-            //ColocarPeca('e', 1, new Torre(Cor.Branca, Tabuleiro));
-            //ColocarPeca('d', 1, new Rei(Cor.Branca, Tabuleiro));
-
-            //ColocarPeca('c', 7, new Torre(Cor.Preta, Tabuleiro));
-            //ColocarPeca('c', 8, new Torre(Cor.Preta, Tabuleiro));
-            //ColocarPeca('d', 7, new Torre(Cor.Preta, Tabuleiro));
-            //ColocarPeca('e', 7, new Torre(Cor.Preta, Tabuleiro));
-            //ColocarPeca('e', 8, new Torre(Cor.Preta, Tabuleiro));
-            //ColocarPeca('d', 8, new Rei(Cor.Preta, Tabuleiro));
+            ColocarPeca('a', 8, new Torre(Cor.Preta, Tabuleiro));
+            ColocarPeca('b', 8, new Cavalo(Cor.Preta, Tabuleiro));
+            ColocarPeca('c', 8, new Bispo(Cor.Preta, Tabuleiro));
+            ColocarPeca('d', 8, new Dama(Cor.Preta, Tabuleiro));
+            ColocarPeca('e', 8, new Rei(Cor.Preta, Tabuleiro));
+            ColocarPeca('f', 8, new Bispo(Cor.Preta, Tabuleiro));
+            ColocarPeca('g', 8, new Cavalo(Cor.Preta, Tabuleiro));
+            ColocarPeca('h', 8, new Torre(Cor.Preta, Tabuleiro));
+            ColocarPeca('a', 7, new Peao(Cor.Preta, Tabuleiro));
+            ColocarPeca('b', 7, new Peao(Cor.Preta, Tabuleiro));
+            ColocarPeca('c', 7, new Peao(Cor.Preta, Tabuleiro));
+            ColocarPeca('d', 7, new Peao(Cor.Preta, Tabuleiro));
+            ColocarPeca('e', 7, new Peao(Cor.Preta, Tabuleiro));
+            ColocarPeca('f', 7, new Peao(Cor.Preta, Tabuleiro));
+            ColocarPeca('g', 7, new Peao(Cor.Preta, Tabuleiro));
+            ColocarPeca('h', 7, new Peao(Cor.Preta, Tabuleiro));
         }
 
         public Peca ExecutaMovimento(Posicao origem, Posicao destino)
