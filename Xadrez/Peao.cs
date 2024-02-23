@@ -1,6 +1,6 @@
 ﻿using Plataforma;
 
-namespace Xadrex
+namespace Xadrez
 {
     internal class Peao : Peca
     {
