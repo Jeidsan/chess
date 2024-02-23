@@ -1,4 +1,4 @@
-﻿namespace Chess.Tabuleiro
+﻿namespace Plataforma
 {
     enum Cor
     {

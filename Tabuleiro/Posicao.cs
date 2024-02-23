@@ -1,4 +1,4 @@
-﻿namespace Chess.Tabuleiro
+﻿namespace Plataforma
 {
     internal class Posicao
     {

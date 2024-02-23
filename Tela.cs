@@ -1,10 +1,10 @@
-﻿using Chess.Tabuleiro;
+﻿using Plataforma;
 
 namespace Chess
 {
     class Tela
     {
-        public static void ImprimirTabuleiro(Tabuleiro.Tabuleiro tab)
+        public static void ImprimirTabuleiro(Tabuleiro tab)
         {
             for (int i = 0; i < tab.Linhas; i++)
             {
