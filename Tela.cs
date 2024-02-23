@@ -70,7 +70,7 @@ namespace Chess
             }
         }
 
-        internal static PosicaoXadrez LerPosicaoXadrez()
+        public static PosicaoXadrez LerPosicaoXadrez()
         {
             string s = Console.ReadLine();
 
@@ -80,7 +80,7 @@ namespace Chess
             return new PosicaoXadrez(coluna, linha);
         }
 
-        internal static void ImprimirPartida(PartidaXadrez partida)
+        public static void ImprimirPartida(PartidaXadrez partida)
         {
             Tela.ImprimirTabuleiro(partida.Tabuleiro);
             Console.WriteLine();
@@ -88,7 +88,10 @@ namespace Chess
 
             Console.WriteLine();
             Console.WriteLine("Turno: " + partida.Turno);
-            Console.WriteLine("Aguardando jogada: " + partida.JogadorAtual);            
+            Console.WriteLine("Aguardando jogada: " + partida.JogadorAtual);
+
+            if(partida.Xeque)
+                Console.WriteLine("XEQUE!");
         }
 
         private static void ImprimirPecasCapturadas(PartidaXadrez partida)
