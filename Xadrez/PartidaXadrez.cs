@@ -64,18 +64,25 @@ namespace Xadrez
         private void ColocarPecas()
         {
             ColocarPeca('c', 1, new Torre(Cor.Branca, Tabuleiro));
-            ColocarPeca('c', 2, new Torre(Cor.Branca, Tabuleiro));
-            ColocarPeca('d', 2, new Torre(Cor.Branca, Tabuleiro));
-            ColocarPeca('e', 2, new Torre(Cor.Branca, Tabuleiro));
-            ColocarPeca('e', 1, new Torre(Cor.Branca, Tabuleiro));
             ColocarPeca('d', 1, new Rei(Cor.Branca, Tabuleiro));
+            ColocarPeca('h', 7, new Torre(Cor.Branca, Tabuleiro));
 
-            ColocarPeca('c', 7, new Torre(Cor.Preta, Tabuleiro));
-            ColocarPeca('c', 8, new Torre(Cor.Preta, Tabuleiro));
-            ColocarPeca('d', 7, new Torre(Cor.Preta, Tabuleiro));
-            ColocarPeca('e', 7, new Torre(Cor.Preta, Tabuleiro));
-            ColocarPeca('e', 8, new Torre(Cor.Preta, Tabuleiro));
-            ColocarPeca('d', 8, new Rei(Cor.Preta, Tabuleiro));
+            ColocarPeca('a', 8, new Rei(Cor.Preta, Tabuleiro));
+            ColocarPeca('b', 8, new Torre(Cor.Preta, Tabuleiro));
+
+            //ColocarPeca('c', 1, new Torre(Cor.Branca, Tabuleiro));
+            //ColocarPeca('c', 2, new Torre(Cor.Branca, Tabuleiro));
+            //ColocarPeca('d', 2, new Torre(Cor.Branca, Tabuleiro));
+            //ColocarPeca('e', 2, new Torre(Cor.Branca, Tabuleiro));
+            //ColocarPeca('e', 1, new Torre(Cor.Branca, Tabuleiro));
+            //ColocarPeca('d', 1, new Rei(Cor.Branca, Tabuleiro));
+
+            //ColocarPeca('c', 7, new Torre(Cor.Preta, Tabuleiro));
+            //ColocarPeca('c', 8, new Torre(Cor.Preta, Tabuleiro));
+            //ColocarPeca('d', 7, new Torre(Cor.Preta, Tabuleiro));
+            //ColocarPeca('e', 7, new Torre(Cor.Preta, Tabuleiro));
+            //ColocarPeca('e', 8, new Torre(Cor.Preta, Tabuleiro));
+            //ColocarPeca('d', 8, new Rei(Cor.Preta, Tabuleiro));
         }
 
         public Peca ExecutaMovimento(Posicao origem, Posicao destino)
@@ -128,8 +135,46 @@ namespace Xadrez
 
             Xeque = EstaEmXeque(Adversaria(JogadorAtual));
 
-            Turno++;
-            MudarJogador();
+            if (EstaEmXequeMate(Adversaria(JogadorAtual)))
+            {
+                Terminada = true;
+            }
+            else
+            {
+                Turno++;
+                MudarJogador();
+            }            
+        }
+
+        public bool EstaEmXequeMate(Cor cor)
+        {
+            if (!EstaEmXeque(cor))
+                return false;
+
+            foreach (var x in PecasEmJogo(cor))
+            {
+                bool[,] mat = x.MovimentosPossiveis();
+                for (int i = 0; i < Tabuleiro.Linhas; i++)
+                {
+                    for (int j = 0; j < Tabuleiro.Colunas; j++)
+                    {
+                        if (mat[i,j])
+                        {
+                            Posicao origem = x.Posicao;
+                            Posicao destino = new Posicao(i, j);
+                            Peca pecaCapturada = ExecutaMovimento(origem, destino);
+                            bool testeXeque = EstaEmXeque(cor);
+
+                            DesfazMovimento(origem, destino, pecaCapturada);
+
+                            if (!testeXeque)
+                                return false;
+                        }
+                    }
+                }
+            }
+
+            return true;
         }
 
         private void DesfazMovimento(Posicao origem, Posicao destino, Peca pecaCapturada)
